@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html style="height: 100%" lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Foundation css -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
-            integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-        <!-- Local css -->
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <!-- Foundation js -->
-        <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
-            integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <title>Document</title>
-    </head>
 
-    <body style="margin-bottom: 160px; height: 100%">
-        <header class="callout warning" style="height: 70px">
-            <ul class="menu float-left">
-                <h4>Animated Text</h4>
-            </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Foundation css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+        integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-prototype.min.css"
+        integrity="sha256-BiKflOunI0SIxlTOOUCQ0HgwXrRrRwBkIYppEllPIok=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css"
+        integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="Develop/style.css">
+    <!-- Foundation js -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+        integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+    <!-- Custom script -->
+    <script src="Develop/script.js"></script>
+    <!-- API script -->
+    <script async src="https://assets.tumblr.com/post.js"></script>
+    <script src="https://www.instagram.com/embed.js"></script>
+    <title>Document</title>
+</head>
 
-            <ul class="menu float-right">
+<body style="height: 100%">
+    <div style="min-height:100%; margin-bottom: -70px">
+        <header class="callout margin-bottom-0 shadow grid-x align-middle align-justify width-100"
+            style="height: 70px; background-color: goldenrod">
+            <h4 class="margin-left-2">Animated Text</h4>
+            <ul class="menu">
                 <li><a href="#">One</a></li>
                 <li><a href="#">Two</a></li>
                 <li><a href="#">Three</a></li>
@@ -30,9 +40,261 @@
             </ul>
         </header>
 
-        <main class="accordion">
-            <section id="#" style="display: all">
-                <img src="Assets/Image-Home-Section.webp" alt="Hello I'm Catherine" class="float-center">
+        <main class="grid-container" style="padding-bottom:100px">
+
+
+
+            <section id="home" style="display: contents">
+                <div class="grid-y">
+                    <div class="cell callout">
+                        <img src="Assets/Image-Home-Section.webp" class="float-center" alt="Welcome!">
+                    </div>
+                    <div class="cell">
+                        <h3 class="text-center">"dad jokes" if your dad was a black lesbian</h3>
+                    </div>
+                    <br>
+                    <div class="cell">
+                        <div class="grid-x">
+                            <div class="cell small-8 medium-4 large-3 auto tumblr-post"
+                                data-href="https://embed.tumblr.com/embed/post/HtQpGKsvVrwVEAUEJEk6Vg/616684192460374016"
+                                data-did="da39a3ee5e6b4b0d3255bfef95601890afd80709">
+                                <a
+                                    href="https://animatedtext.tumblr.com/post/616684192460374016">https://animatedtext.tumblr.com/post/616684192460374016</a>>
+                            </div>
+                            <div class="cell small-8 medium-4 large-3 auto float-center">
+                                <div class="column">
+                                    <div class="productphoto"><a href=""><img class="thumbnail"
+                                            src="https://assets.bigcartel.com/product_images/253825934/bad+bitches.png?auto=format&fit=max&h=1000&w=1000"
+                                            alt=""></a>
+                                    </div>
+                                    <h5 class="text-center">SHOP</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-y">
+                    <div class="cell">
+                        <div class="grid-x">
+                            <div class="cell callout small-8 medium-4 large-3 auto">
+                                <button data-open="exampleModal">
+                                    <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                        alt="Just some of many issues">
+                                </button>
+                                <div class="reveal" id="exampleModal" data-reveal>
+                                    <h1><img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                            alt="Just some of many issues"></h1>
+                                    <button type="button" class="close-button" data-close aria-label="Close reveal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="cell callout small-8 medium-4 large-3 auto">
+                                <button data-open="exampleModal">
+                                    <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                        alt="Just some of many issues">
+                                </button>
+                                <div class="reveal" id="exampleModal" data-reveal>
+                                    <h1><img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                            alt="Just some of many issues"></h1>
+                                    <button type="button" class="close-button" data-close aria-label="Close reveal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="cell callout small-8 medium-4 large-3 auto">
+                                <button data-open="exampleModal">
+                                    <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                        alt="Just some of many issues">
+                                </button>
+                                <div class="reveal" id="exampleModal" data-reveal>
+                                    <h1><img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                            alt="Just some of many issues"></h1>
+                                    <button type="button" class="close-button" data-close aria-label="Close reveal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="cell callout small-8 medium-4 large-3 auto">
+                                <button data-open="exampleModal">
+                                    <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                        alt="Just some of many issues">
+                                </button>
+                                <div class="reveal" id="exampleModal" data-reveal>
+                                    <h1><img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                            alt="Just some of many issues"></h1>
+                                    <button type="button" class="close-button" data-close aria-label="Close reveal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="grid-x">
+                            <div class="cell callout small-8 medium-4 large-3 auto">
+                                <button data-open="exampleModal">
+                                    <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                        alt="Just some of many issues">
+                                </button>
+                                <div class="reveal" id="exampleModal" data-reveal>
+                                    <h1><img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                            alt="Just some of many issues"></h1>
+                                    <button type="button" class="close-button" data-close aria-label="Close reveal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="cell callout small-8 medium-4 large-3 auto">
+                                <button data-open="exampleModal">
+                                    <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                        alt="Just some of many issues">
+                                </button>
+                                <div class="reveal" id="exampleModal" data-reveal>
+                                    <h1><img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                            alt="Just some of many issues"></h1>
+                                    <button type="button" class="close-button" data-close aria-label="Close reveal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="cell callout small-8 medium-4 large-3 auto">
+                                <button data-open="exampleModal">
+                                    <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                        alt="Just some of many issues">
+                                </button>
+                                <div class="reveal" id="exampleModal" data-reveal>
+                                    <h1><img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                            alt="Just some of many issues"></h1>
+                                    <button type="button" class="close-button" data-close aria-label="Close reveal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="cell callout small-8 medium-4 large-3 auto">
+                                <button data-open="exampleModal">
+                                    <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                        alt="Just some of many issues">
+                                </button>
+                                <div class="reveal" id="exampleModal" data-reveal>
+                                    <h1><img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
+                                            alt="Just some of many issues"></h1>
+                                    <button type="button" class="close-button" data-close aria-label="Close reveal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            </section>
+
+
+
+            <!-- <button data-open="exampleModal">
+                <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv" alt="Just some of many issues">
+            </button>
+            <div class="reveal" id="exampleModal" data-reveal>
+                <h1><img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv" alt="Just some of many issues"></h1>
+                <button type="button" class="close-button" data-close aria-label="Close reveal">
+                    <span aria-hidden="true">&times;</span>
+                </button> -->
+
+
+
+            <!-- <section id="#" style="display:contents">
+                <div class="grid-x">
+                    <div class="cell small-5 large-5 float-left tumblr-post"
+                        data-href="https://embed.tumblr.com/embed/post/HtQpGKsvVrwVEAUEJEk6Vg/616684192460374016"
+                        data-did="da39a3ee5e6b4b0d3255bfef95601890afd80709">
+                        <a
+                            href="https://animatedtext.tumblr.com/post/616684192460374016">https://animatedtext.tumblr.com/post/616684192460374016</a>
+                    </div>
+                    <div class="cell small-5 large-5" id="instagramhome">
+                    </div>
+                </div>
+                <br> -->
+            <!-- <hr>
+                <div class="row column text-center">
+                    <h1>Best Sellers</h1>
+                </div>
+
+
+                <div class="row small-up-2 large-up-4 buffer">
+                    <div class="column">
+                        <div class="productphoto"><img class="thumbnail"
+                                src="https://assets.bigcartel.com/product_images/253825934/bad+bitches.png?auto=format&fit=max&h=1000&w=1000"
+                                alt="">
+                        </div>
+                        <h5>Nulla At Nulla Justo, Eget</h5>
+                        <p>$400</p>
+                        <a href="#" class="button expanded">Buy</a>
+                    </div>
+                    <div class="column">
+                        <div class="productphoto"><img class="thumbnail"
+                                src="https://assets.bigcartel.com/product_images/252512306/COVER-STONE.jpg?auto=format&fit=max&h=1000&w=1000">
+                        </div>
+                        <h5>Nulla At Nulla Justo, Eget</h5>
+                        <p>$400</p>
+                        <a href="#" class="button expanded">Buy</a>
+                    </div>
+                    <div class="column">
+                        <div class="productphoto"><img class="thumbnail"
+                                src="https://assets.bigcartel.com/product_images/255455609/ABitchIs+Trying+Poster.jpg?auto=format&fit=max&h=1000&w=1000">
+                        </div>
+                        <h5>Nulla At Nulla Justo, Eget</h5>
+                        <p>$400</p>
+                        <a href="#" class="button expanded">Buy</a>
+                    </div>
+                    <div class="column">
+                        <div class="productphoto"><img class="thumbnail"
+                                src="https://assets.bigcartel.com/product_images/253052168/Lochness-6.jpg?auto=format&fit=max&h=1000&w=1000">
+                        </div>
+                        <h5>Nulla At Nulla Justo, Eget</h5>
+                        <p>$400</p>
+                        <a href="#" class="button expanded">Buy</a>
+                    </div>
+                </div>
+                <div class="row small-up-2 large-up-4">
+                    <div class="column">
+                        <div class="productphoto"><img class="thumbnail"
+                                src="https://assets.bigcartel.com/product_images/253825934/bad+bitches.png?auto=format&fit=max&h=1000&w=1000"
+                                alt="">
+                        </div>
+                        <h5>Nulla At Nulla Justo, Eget</h5>
+                        <p>$400</p>
+                        <a href="#" class="button expanded">Buy</a>
+                    </div>
+                    <div class="column">
+                        <div class="productphoto"><img class="thumbnail"
+                                src="https://assets.bigcartel.com/product_images/252512306/COVER-STONE.jpg?auto=format&fit=max&h=1000&w=1000">
+                        </div>
+                        <h5>Nulla At Nulla Justo, Eget</h5>
+                        <p>$400</p>
+                        <a href="#" class="button expanded">Buy</a>
+                    </div>
+                    <div class="column">
+                        <div class="productphoto"><img class="thumbnail"
+                                src="https://assets.bigcartel.com/product_images/255455609/ABitchIs+Trying+Poster.jpg?auto=format&fit=max&h=1000&w=1000">
+                        </div>
+                        <h5>Nulla At Nulla Justo, Eget</h5>
+                        <p>$400</p>
+                        <a href="#" class="button expanded">Buy</a>
+                    </div>
+                    <div class="column">
+                        <div class="productphoto"><img class="thumbnail"
+                                src="https://assets.bigcartel.com/product_images/253052168/Lochness-6.jpg?auto=format&fit=max&h=1000&w=1000">
+                        </div>
+                        <h5>Nulla At Nulla Justo, Eget</h5>
+                        <p>$400</p>
+                        <a href="#" class="button expanded">Buy</a>
+                    </div>
+                </div> -->
             </section>
 
             <section id="#" style="display: none">
@@ -44,13 +306,15 @@
             </section>
 
         </main>
+    </div>
 
-        <footer class="callout warning" style="height: 70px; width: 100%;">
-        
-        </footer>
-        
-    </body>
+    <footer class="callout grid-x width-100 align-middle"
+        style="height: 70px; margin-bottom:0; background-color:goldenrod">
+        <h4 class="" style="margin-bottom:0">Footer</h4>
+    </footer>
 
-    
+</body>
+
+
 
 </html>
