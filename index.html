@@ -16,13 +16,15 @@
         integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">
     <!-- Custom css -->
     <link rel="stylesheet" type="text/css" href="Develop/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Foundation js -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
     <!-- Custom script -->
     <script src="Develop/script.js"></script>
     <!-- API script -->
-    <script async src="https://assets.tumblr.com/post.js"></script>
+    <!-- <script async src="https://assets.tumblr.com/post.js"></script> -->
     <script src="https://www.instagram.com/embed.js"></script>
     <title>Document</title>
 </head>
@@ -32,18 +34,17 @@
         <header class="callout margin-bottom-0 shadow grid-x align-middle align-justify width-100"
             style="height: 70px; background-color: goldenrod">
             <h4 class="margin-left-2">Animated Text</h4>
+            <img id="logo" src="Assets/Animated-Text-Logo.png">
             <ul class="menu">
-                <li><a href="#">One</a></li>
-                <li><a href="#">Two</a></li>
-                <li><a href="#">Three</a></li>
-                <li><a href="#">Four</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Content</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </header>
 
         <main class="grid-container" style="padding-bottom:100px">
-
-
-
             <section id="home" style="display: contents">
                 <div class="grid-y">
                     <div class="cell callout">
@@ -55,17 +56,35 @@
                     <br>
                     <div class="cell">
                         <div class="grid-x">
-                            <div class="cell small-8 medium-4 large-3 auto tumblr-post"
+                            <div class="cell small-8 medium-4 large-3 card auto float-center">
+                                <img src="Assets/animatedtextexample.gif.png" />
+                                <div class='card-section'>
+                                    <p>Source: Cat #hey, #how, #are, #you</p>
+                                    <div class='grid-x grid-margin-x'>
+                                        <div class='cell auto'>
+                                            <div class='notes'>12345</div>
+                                        </div>
+                                        <div class='cell auto'>
+                                            <div class='float-right'>
+                                                <button data-open="askModal"><small>request a gif! </small></button>
+                                                <i class='fi-mail' id='contact-me' data-open="contactModal"></i>
+                                                <i class='fi-share' id='share' data-open="shareModal"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="cell small-8 medium-4 large-3 auto tumblr-post"
                                 data-href="https://embed.tumblr.com/embed/post/HtQpGKsvVrwVEAUEJEk6Vg/616684192460374016"
                                 data-did="da39a3ee5e6b4b0d3255bfef95601890afd80709">
                                 <a
                                     href="https://animatedtext.tumblr.com/post/616684192460374016">https://animatedtext.tumblr.com/post/616684192460374016</a>>
-                            </div>
+                            </div> -->
                             <div class="cell small-8 medium-4 large-3 auto float-center">
                                 <div class="column">
                                     <div class="productphoto"><a href=""><img class="thumbnail"
-                                            src="https://assets.bigcartel.com/product_images/253825934/bad+bitches.png?auto=format&fit=max&h=1000&w=1000"
-                                            alt=""></a>
+                                                src="https://assets.bigcartel.com/product_images/253825934/bad+bitches.png?auto=format&fit=max&h=1000&w=1000"
+                                                alt=""></a>
                                     </div>
                                     <h5 class="text-center">SHOP</h5>
                                 </div>
@@ -73,11 +92,13 @@
                         </div>
                     </div>
                 </div>
+                <hr>
+                <h1 class="text-center">Instagram</h1>
                 <div class="grid-y">
                     <div class="cell">
                         <div class="grid-x">
                             <div class="cell callout small-8 medium-4 large-3 auto">
-                                <button data-open="exampleModal">
+                                <button class="productphoto" data-open="exampleModal">
                                     <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
                                         alt="Just some of many issues">
                                 </button>
@@ -91,7 +112,7 @@
                             </div>
 
                             <div class="cell callout small-8 medium-4 large-3 auto">
-                                <button data-open="exampleModal">
+                                <button class="productphoto" data-open="exampleModal">
                                     <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
                                         alt="Just some of many issues">
                                 </button>
@@ -105,7 +126,7 @@
                             </div>
 
                             <div class="cell callout small-8 medium-4 large-3 auto">
-                                <button data-open="exampleModal">
+                                <button class="productphoto" data-open="exampleModal">
                                     <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
                                         alt="Just some of many issues">
                                 </button>
@@ -119,7 +140,7 @@
                             </div>
 
                             <div class="cell callout small-8 medium-4 large-3 auto">
-                                <button data-open="exampleModal">
+                                <button class="productphoto" data-open="exampleModal">
                                     <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
                                         alt="Just some of many issues">
                                 </button>
@@ -135,7 +156,7 @@
                         </div>
                         <div class="grid-x">
                             <div class="cell callout small-8 medium-4 large-3 auto">
-                                <button data-open="exampleModal">
+                                <button class="productphoto" data-open="exampleModal">
                                     <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
                                         alt="Just some of many issues">
                                 </button>
@@ -149,7 +170,7 @@
                             </div>
 
                             <div class="cell callout small-8 medium-4 large-3 auto">
-                                <button data-open="exampleModal">
+                                <button class="productphoto" data-open="exampleModal">
                                     <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
                                         alt="Just some of many issues">
                                 </button>
@@ -163,7 +184,7 @@
                             </div>
 
                             <div class="cell callout small-8 medium-4 large-3 auto">
-                                <button data-open="exampleModal">
+                                <button class="productphoto" data-open="exampleModal">
                                     <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
                                         alt="Just some of many issues">
                                 </button>
@@ -177,7 +198,7 @@
                             </div>
 
                             <div class="cell callout small-8 medium-4 large-3 auto">
-                                <button data-open="exampleModal">
+                                <button class="productphoto" data-open="exampleModal">
                                     <img src="https://66.media.tumblr.com/dc76fba703b2088d7a3d7b421bb13739/881eac0240bf1714-8c/s640x960/2f65d8ecabad70959db4a4ebb3c373635550d57e.gifv"
                                         alt="Just some of many issues">
                                 </button>
@@ -305,12 +326,21 @@
 
             </section>
 
+            <section id="#" style="display: none">
+
+            </section>
+
+            <section id="#" style="display: none">
+
+            </section>
+
         </main>
     </div>
 
     <footer class="callout grid-x width-100 align-middle"
         style="height: 70px; margin-bottom:0; background-color:goldenrod">
         <h4 class="" style="margin-bottom:0">Footer</h4>
+        <a href="#" class="fa fa-facebook align-right"></a>
     </footer>
 
 </body>
