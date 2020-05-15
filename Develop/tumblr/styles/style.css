@@ -1,0 +1,19 @@
+
+.card-section {
+    color: lightgray;
+    }
+    
+    .card-section button {
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      color: lightgray;
+    }
+    
+    .notes {
+        font-weight: bold;
+    }
+    
+    #social-media {
+      width: 25px;
+    }
