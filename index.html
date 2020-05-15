@@ -307,8 +307,72 @@
                     </div>
 
                 </section>
+<section>
+<!--Tumblr section-->
 
-                
+<div class="grid-container-fluid" id="tumblr-posts">
+    <!--Tumblr posts append here-->
+
+
+</div>
+
+ <!--Modals go here!-->
+
+ <div class="reveal" id="askModal" data-reveal>
+    <form>
+      <label>
+        <h4>Request a gif!</h4>
+        <textarea placeholder="Add your social media handles if you want a shout-out."></textarea>
+      </label>
+      <input type="submit" class="send">
+    </form>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+ 
+
+  <div class="medium reveal" id="contactModal" data-reveal>
+    <form>
+
+      <label>
+        <h6>Contact Me</h6>
+        <input type="email" id="user-email" placeholder="Your Email">
+      </label>
+      <label>
+        <p>Message:</p>
+        <textarea id="body" placeholder="Your message goes here."></textarea>
+      </label>
+      <input type="submit" class="send">
+    </form>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <!--redirect to notes dropup--> 
+ <div class="dropdown-pane" data-position="top" data-alignment="right" id="notes-hover" data-dropdown data-hover="true" data-hover-pane="true">
+  <a href="https://animatedtext.tumblr.com">redirect to notes</a>
+   </div>
+
+ <!--redirect to tumble dropup--> 
+ <div class="dropdown-pane" data-position="top" data-alignment="right" id="tumblr-hover" data-dropdown data-hover="true" data-hover-pane="true">
+  <a href="https://animatedtext.tumblr.com"> go to my tumblr!</a>
+   </div>
+
+<!--Social Media toggle menu-->
+  <div class="dropdown-pane" data-position="top" data-alignment="right" id="social-media" data-dropdown data-hover="true" data-hover-pane="true">
+    <ul class="vertical menu align-center">
+      <li><i class='fi-social-tumblr large' id='tumblr'></i></li>
+      <li><i class='fi-social-twitter large' id='twitter'></i></li>
+      <li><i class='fi-social-facebook large' id='facebook'></i></li>
+      <li><i class='fi-social-reddit large' id='reddit'></i></li>
+      <li><i class='fi-social-pinterest large' id='pinterest'></i></li>
+      <li><i class='fi-link large' id='embed'></i></li>
+      </ul>
+  </div>
+
+</section>                
 
             </main>
 

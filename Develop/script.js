@@ -366,7 +366,7 @@ $( document ).ready(function() {
         getPosts();
 
 
-        //Variable tells the browser where (what "page") load new posts from the JSON object.
+        //Variable tells the browser where (what "page") to grab new posts from the JSON object.
         var page = 0;
         function getPosts() {
             var queryURL = 'https://api.tumblr.com/v2/blog/animatedtext.tumblr.com/posts?api_key=6zhnqA40ToF48oXKQFOVWRNfxfSTCFpO8xAJzWqUQOY3E1NOYj';
