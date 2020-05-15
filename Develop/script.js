@@ -77,7 +77,6 @@ $( document ).ready(function() {
         } else {
             fillProducts(collections[0].title);
         }
-
         $("#shop").css("display", "contents");
     };
 
@@ -365,6 +364,7 @@ $( document ).ready(function() {
     }
 
     function displayBlog() {
+        resetDisplay();
         getPosts();
 
 
@@ -464,7 +464,5 @@ $( document ).ready(function() {
             $("#contactModal").foundation('reveal', 'close');
             $("#askModal").foundation('reveal', close);
         });
-
     }
-
 });

@@ -1,13 +1,17 @@
-
-.card-section {
-    color: lightgray;
-    }
+.card {
+    border-radius: 5%;
+    border-color: #95939f !important;
+}
+ .card-section {
+    background-color: #f8f7fd;
+    color: #95939f;
+    } 
     
     .card-section button {
       margin-top: 10px;
       margin-left: 10px;
       margin-right: 10px;
-      color: lightgray;
+      color:  #95939f;
     }
     
     .notes {
