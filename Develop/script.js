@@ -40,6 +40,8 @@ $( document ).ready(function() {
             displayShop();
         } else if (target === "Cart") {
             displayCart();
+        } else if (target === "Blog") {
+            displayBlog();
         }
     });
 
@@ -453,7 +455,7 @@ $( document ).ready(function() {
         });
     
         //get values from contact/request forms and sent to client email
-        $('.class').on('click', function(e) {
+        $('.send').on('click', function(e) {
             subject = $('#user-email').val();
             body = $('#body').val();
             //using my email as a dummy for now
