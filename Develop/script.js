@@ -127,30 +127,45 @@ $( document ).ready(function() {
     $("#paymentButton").on("click", function() {
         event.stopPropagation();
 
+        const shippingAddress = {
+            address1: $("#address1").val(),
+            address2: $("#address2").val(),
+            city: $("#city").val(),
+            company: $("company").val(),
+            country: $("#country").val(),
+            firstName: $("#firstName").val(),
+            lastName: $("#lastName").val(),
+            phone: $("#phone").val(),
+            province: $("#province").val(),
+            zip: $("#zip").val()
+        };
+
+        for (var i = 0; i < itemsToCheckout.length; i++) {
+            if (itemsToCheckout[i].quantity === 0) {
+                itemsToCheckout.splice(i, 1);
+                itemsProperties.splice(i, 1);
+                i--;
+            }
+        }
+
         requirejs(["../Library/index.umd.min"], function(index) {
             var client = index.buildClient({
                 domain: "bcs-project1-test.myshopify.com",
                 storefrontAccessToken: "3f08fc281f5bf535c6fdcaf9a57b5db9"
             });
     
-            for (var i = 0; i < itemsToCheckout.length; i++) {
-                if (itemsToCheckout[i].quantity === 0) {
-                    itemsToCheckout.splice(i, 1);
-                    itemsProperties.splice(i, 1);
-                    i--;
-                }
-            }
-    
-            itemsToCheckout = [];
-            itemsProperties = [];
-            localStorage.setItem("itemsToCheckout", JSON.stringify(itemsToCheckout));
-            localStorage.setItem("itemsProperties", JSON.stringify(itemsProperties));
-    
             client.checkout.create().then((checkout) => {
+                client.checkout.updateShippingAddress(checkout.id, shippingAddress);
                 client.checkout.addLineItems(checkout.id, itemsToCheckout);
+                
                 window.location.replace(checkout.webUrl);
             });
         });
+
+        itemsToCheckout = [];
+        itemsProperties = [];
+        localStorage.setItem("itemsToCheckout", JSON.stringify(itemsToCheckout));
+        localStorage.setItem("itemsProperties", JSON.stringify(itemsProperties));
     });
 
     function displayCart() {
