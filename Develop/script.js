@@ -36,9 +36,9 @@ $( document ).ready(function() {
 
         resetDisplay();
         var target = event.target.textContent;
-        if (target == "Shop") {
+        if (target === "Shop") {
             displayShop();
-        } else if (target == "Cart") {
+        } else if (target === "Cart") {
             displayCart();
         }
     });
@@ -56,7 +56,7 @@ $( document ).ready(function() {
 
     // requirejs code - TODO
     function displayShop() {
-        if (shopFilled == false) {
+        if (shopFilled === false) {
             var shopNav = $("#collections");
             for (var i = 0; i < collections.length; i++) {
                 var collectionName = collections[i].title;
@@ -145,7 +145,7 @@ $( document ).ready(function() {
         // });
 
         for (var i = 0; i < itemsToCheckout.length; i++) {
-            if (itemsToCheckout[i].quantity == 0) {
+            if (itemsToCheckout[i].quantity === 0) {
                 itemsToCheckout.splice(i, 1);
                 itemsProperties.splice(i, 1);
                 i--;
@@ -171,7 +171,7 @@ $( document ).ready(function() {
     function displayCart() {
         $("#cartItems").empty();
 
-        if (itemsToCheckout.length == 0) {
+        if (itemsToCheckout.length === 0) {
             $("#cartEmpty").css("display", "contents");
             $("#checkout").css("display", "none");
         } else {
@@ -241,12 +241,12 @@ $( document ).ready(function() {
 
             var ID = event.target.dataset.productID;
             for (var i = 0; i < itemsToCheckout.length; i++) {
-                if (itemsToCheckout[i].variantId == ID) {
+                if (itemsToCheckout[i].variantId === ID) {
                     event.target.textContent = "Already added"
                     break;
                 }
 
-                if (i == itemsToCheckout.length - 1) {
+                if (i === itemsToCheckout.length - 1) {
                     itemsToCheckout.push({
                         variantId: ID,
                         quantity: 1
@@ -274,7 +274,7 @@ $( document ).ready(function() {
         var rowToAdd;
         var count = 0;
         for (var i = 0; i < collectionToFill.products.length; i++) {
-            if (count == 0) { rowToAdd = $("<div>").addClass("grid-x grid-margin-x align-center"); }
+            if (count === 0) { rowToAdd = $("<div>").addClass("grid-x grid-margin-x align-center"); }
             
             var columnToAdd = $("<div>").addClass("cell small-8 medium-4 large-3 auto callout");
             var cellToAdd = $("<div>").addClass("cell grid-y text-center");
@@ -312,7 +312,7 @@ $( document ).ready(function() {
             modalImageVariantCell.append(modalImageVariantGrid);
 
             for (var j = 0; j < collectionToFill.products[i].images.length; j++) {
-                if (j == 3) { break; }
+                if (j === 3) { break; }
                 var modalImageVariant = $("<div>").addClass("cell small-4");
                 var modalImageVariantButton = $("<button>");
                 var modalImageVariantImage = $("<img>").addClass("width-100 display-block max-width-100");
@@ -355,7 +355,7 @@ $( document ).ready(function() {
             cellToAdd.append(productTitle);
 
             count++;
-            if (count == 3 || i == collectionToFill.products.length - 1) {
+            if (count === 3 || i === collectionToFill.products.length - 1) {
                 $("#products").append(rowToAdd);
                 count = 0;
             }
@@ -403,7 +403,7 @@ $( document ).ready(function() {
                             tags = " " + tagsArray;
                         }
                         //retrieve the image associate with the post
-                        if (type == "photo") {
+                        if (type === "photo") {
                             var photos = p[i].photos;
                             for (var j = 0; j < photos.length; j++) {
                                 if (photos[j].alt_sizes[0]) {
@@ -413,7 +413,7 @@ $( document ).ready(function() {
                         }
                         i++;
                         //filter content types that cause double-posting.
-                        if (type == "answer" || type == "text") {
+                        if (type === "answer" || type === "text") {
                             console.log(p[i].summary + ", " + id);
                         } else {
                             //render posts to the page
@@ -444,7 +444,7 @@ $( document ).ready(function() {
         
         //Scroll to bottom of the page and load the next post-array
         $(window).scroll(function () {
-            if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+            if ($(window).scrollTop() === $(document).height() - $(window).height()) {
                 //increase offset by 20
                 page++
                 //render the posts
