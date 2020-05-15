@@ -18,10 +18,11 @@
         <!-- instagram js -->
         <script src="https://www.instagram.com/embed.js"></script>
       
-        <!-- custom script -->
-        <script src="Develop/script.js"></script>
         <!-- require js-->
         <script data-main="Develop/script" src="Library/require.js"></script>
+        <!-- custom script -->
+        <script src="Develop/script.js"></script>
+        
          
         <title>Document</title>
     </head>
@@ -33,7 +34,7 @@
                 
                 <h4>Animated Text</h4>
 
-                <ul class="menu">
+                <ul class="menu" id="navbar">
                     <li><button type="button" class="button clear">Shop</button></li>
                     <li><button type="button" class="button clear">Cart</button></li>
                 </ul>
@@ -48,61 +49,71 @@
                             <h4 class="text-center">Cart</h4>
                         </div>
 
-                        <div class="cell margin-top-3" style="display: contents">
-                            <h3 class="text-center">Buy some stuff... Yaaaaas!</h3>
+                        <div class="cell" style="display: none" id="cartEmpty">
+                            <h3 class="margin-top-3 text-center">Buy some stuff... Yaaaaas!</h3>
                         </div>
 
-                        <!-- example order
-                        <div class="cell callout grid-x align-center"
-                            style="border: none; border-bottom: 1px solid lightgray">
-                            <div class="cell callout margin-bottom-0 padding-0 small-12 medium-3">
-                                <img class="thumbnail callout margin-bottom-0" src="Assets/test.png">
-                            </div>
-
-                            <div class="cell callout margin-right-1 margin-bottom-0 padding-0 border-none small-12 medium-3">
-                                <h6 class="margin-left-1">BIGFOOT TRIED TO EAT MY ASS</h6>
-                            </div>
-
-                            <div class="cell grid-y align-justify callout padding-0 border-none small-12 medium-2">
-                                <div class="cell text-right">
-                                    <h6 class="margin-bottom-0">Quantity: <span>5</span></h6>
-
-                                    <button type="button" class="button primary margin-bottom-0 float-right">
-                                        &plus;
-                                    </button>
-
-                                    <button type="button" class="button primary margin-bottom-0 float-right">
-                                        &minus;
-                                    </button>
-                                    
+                        <div class="cell" id="cartItems">
+                            <!-- example order 
+                            <div class="cell callout grid-x align-center"
+                                style="border: none; border-bottom: 1px solid lightgray">
+                                <div class="cell callout margin-bottom-0 padding-0 small-12 medium-3">
+                                    <img class="thumbnail callout margin-bottom-0" src="Assets/test.png">
                                 </div>
 
-                                <div class="cell">
-                                    <button type="button" class="button clear margin-bottom-0 float-right">
-                                        Remove
-                                    </button>
+                                <div class="cell callout margin-right-1 margin-bottom-0 padding-0 border-none small-12 medium-3">
+                                    <h6 class="margin-left-1">BIGFOOT TRIED TO EAT MY ASS</h6>
                                 </div>
 
+                                <div class="cell grid-y align-justify callout padding-0 border-none small-12 medium-2">
+                                    <div class="cell text-right" data-itemIndex="">
+                                        <h6 class="margin-bottom-0">Quantity: <span>5</span></h6>
+
+                                        <button type="button" class="button primary callout margin-bottom-0 float-right">
+                                            &plus;
+                                        </button>
+
+                                        <button type="button" class="button primary callout margin-bottom-0 float-right">
+                                            &minus;
+                                        </button>
+                                        
+                                    </div>
+
+                                    <div class="cell">
+                                        <button type="button" class="button clear margin-bottom-0 float-right">
+                                            Remove
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <div class="cell" style="display: none">
+                            <div class="grid-x align-right">
+                                <button type="button" class="cell small-12 medium-4 button primary" id="checkoutButton">
+                                    Checkout
+                                </button>
                             </div>
-                        </div> -->
+                        </div>
 
                     </div>
                     
                 </section>
 
+                
+
                 <!-- Shop Section -->
                 <section id="shop" style="display: none">
                     <div class="grid-y margin-top-2" style="padding-bottom: 100px">
-                        <div class="cell">
+                        <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
                             <h4 class="text-center">Shop</h4>
                         </div>
                 
                         <div class="cell">
                             <ul class="menu margin-horizontal-3 align-center icons" id="collections"
-                                style="border-top: 1px solid lightgray; border-bottom: 1px solid lightgray">
+                                style="border-bottom: 1px solid lightgray">
                                 <!-- example collections to be added
-                                <li><button type="button" class="button clear secondary" id="shopAll">
-                                    All</button></li>
                                 <li><button type="button" class="button clear secondary" id="shopBest">
                                     Best Sellers</button></li>
                                 <li><button type="button" class="button clear secondary" id="shopCaps">
@@ -125,7 +136,7 @@
                                             <img class="thumbnail margin-bottom-0" src="Assets/test.png">
                                         </button>
                                         
-                                        <div class="large reveal" id="modal" data-reveal>
+                                        <div class="large reveal" id="modal" data-reveal="">
                                             <div class="grid-x">
                                                 <div class="cell small-12 medium-7">
                                                     <div class="grid-y">
@@ -166,16 +177,20 @@
                                                         </div>
 
                                                         <div class="cell small-2 margin-top-1">
-                                                            <button type="button" class="success button width-100" data-productID="">
+                                                            <button type="button" class="success button width-100"
+                                                                data-productID=""
+                                                                data-productTitle=""
+                                                                data-imgSRC="">
                                                                 Add to Cart
                                                             </button>
                                                         </div>
+
                                                     </div>
                                                 </div>
 
                                             </div>
                                             
-                                            <button type="button" class="close-button" data-close aria-label="Close reveal">
+                                            <button type="button" class="close-button" data-close="" aria-label="close reveal">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -194,11 +209,105 @@
 
                             </div>-->
 
-
                         </div>
                     </div>
                 </section>
 
+                <section id="checkout" style="display: contents">
+                    <div class="grid-y margin-top-2" style="padding-bottom: 100px">
+                        <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
+                            <h4 class="text-center">Checkout</h4>
+                        </div>
+
+                        <div class="cell margin-top-2 margin-bottom-1">
+                            <form>
+                                <div class="grid-x grid-padding-x align-center">
+                                    <div class="cell small-12 medium-5">
+                                        <label>First Name:
+                                          <input type="text" id="firstName" placeholder="Bob">
+                                        </label>
+                                    </div>
+
+                                    <div class="cell small-12 medium-5">
+                                        <label>Last Name:
+                                          <input type="text" id="lastName" placeholder="Jones">
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="grid-x grid-padding-x align-center">
+                                    <div class="cell small-12 medium-5">
+                                        <label>Address 1:
+                                          <input type="text" id="address1" placeholder="123 Animated Street">
+                                        </label>
+                                    </div>
+
+                                    <div class="cell small-12 medium-5">
+                                        <label>Address 2:
+                                          <input type="text" id="address2" placeholder="Apt 2">
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="grid-x grid-padding-x align-center">
+                                    <div class="cell small-12 medium-5">
+                                        <label>City:
+                                          <input type="text" id="city" placeholder="LaLa Land">
+                                        </label>
+                                    </div>
+
+                                    <div class="cell small-12 medium-5">
+                                        <label>Province:
+                                          <input type="text" id="province" placeholder="California">
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="grid-x grid-padding-x align-center">
+                                    <div class="cell small-12 medium-5">
+                                        <label>Zip code:
+                                          <input type="text" id="zip" placeholder="90024">
+                                        </label>
+                                    </div>
+
+                                    <div class="cell small-12 medium-5">
+                                        <label>Country:
+                                          <input type="text" id="country" placeholder="United States">
+                                        </label>
+                                    </div>
+                                </div>
+
+                                
+                                <div class="grid-x grid-padding-x align-center">
+                                    <div class="cell small-12 medium-5">
+                                        <label>Phone:
+                                          <input type="text" id="phone" placeholder="310-123-4567">
+                                        </label>
+                                    </div>
+
+                                    <div class="cell small-12 medium-5">
+                                        <label>Company:
+                                          <input type="text" id="company" placeholder="">
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <div class="cell" style="display: contents">
+                            <div class="grid-x align-center">
+                                <button type="button" class="cell small-12 medium-4 button primary" id="paymentButton">
+                                    Checkout
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                
 
             </main>
 
