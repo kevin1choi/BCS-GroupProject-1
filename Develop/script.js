@@ -1,6 +1,12 @@
 // on DOM load
 $( document ).ready(function() {
     $(document).foundation();
+    
+    requirejs(["../Library/index.umd.min"], function(index) {
+        //This function is called when ""../Library/index.umd.min" is loaded.
+        //Functions are not fired until dependencies have loaded and the index
+        //argument will hold the module value for "../Library/index.umd.min".
+    });
 
     displayHome();
 
@@ -107,12 +113,6 @@ $( document ).ready(function() {
         /* this contains the contact and share link, ends the array */
         var socialLinks = "<i class='fi-mail' id='contact-me' data-open='contactModal'> </i><i class='fi-share' id='share' data-toggle='social-media'> </i></div></div></div></div></div><div class='cell medium-3'></div></div>";
     }
-
-    // requirejs(["../Library/index.umd.min"], function(index) {
-    //     //This function is called when ""../Library/index.umd.min" is loaded.
-    //     //Functions are not fired until dependencies have loaded and the index
-    //     //argument will hold the module value for "../Library/index.umd.min".
-    // });
 
     function resetDisplay() {
         $("#shop").css("display", "none");
