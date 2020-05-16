@@ -13,8 +13,8 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-prototype.min.css"
         integrity="sha256-BiKflOunI0SIxlTOOUCQ0HgwXrRrRwBkIYppEllPIok=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css"
-        integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css"
+        integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous"> -->
     <!-- Custom css -->
     <link rel="stylesheet" type="text/css" href="Develop/style.css">
     <!--Local custom CSS for Tumblr styling-->
@@ -28,15 +28,16 @@
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
     <!-- require js-->
     <script data-main="Develop/script" src="Library/require.js"></script>
-    <!-- Custom script -->
-    <script src="Develop/script.js"></script>
+    <!-- Custom script
+        - don't need, require.js need for shopify module loads script.js already
+    <script src="Develop/script.js"></script>-->
     <!-- Instagram js -->
     <script src="https://www.instagram.com/embed.js"></script>
     <title>Animated Text</title>
 </head>
 
 <body style="height: 100%">
-    <div style="min-height:100%; margin-bottom: -70px">
+    <div style="min-height:100%; margin-bottom: -100px">
         <header class="callout margin-bottom-0 shadow grid-x align-middle align-justify width-100"
             style="height: 70px; background-color: goldenrod">
             <h4 class="margin-left-2">Animated Text</h4>
@@ -55,6 +56,7 @@
         </header>
 
         <main class="grid-container" style="padding-bottom:100px">
+            <!-- home section -->
             <section id="home" style="display: contents">
                 <div class="grid-y">
                     <div class="cell callout">
@@ -63,7 +65,7 @@
                     </div>
                     <div class="cell">
                         <!-- Mini-description of content -->
-                        <h3 class="text-center">"dad jokes" if your dad was a black lesbian</h3>
+                        <h3 class="text-center">"Dad Jokes" If Your Dad Was A Black Lesbian</h3>
                     </div>
                     <br>
                     <div class="cell">
@@ -148,7 +150,7 @@
                             </div> -->
                     </div>
 
-                    <div class="cell" style="display: none">
+                    <div class="cell" style="display: none" id="checkoutCell">
                         <div class="grid-x align-right">
                             <button type="button" class="cell small-12 medium-4 button primary" id="checkoutButton">
                                 Checkout
@@ -157,97 +159,77 @@
                     </div>
 
                 </div>
-
-                <section id="#" style="display: none">
-
-                </section>
-
-                <section id="#" style="display: none">
-
-                </section>
+            </section>
+    
 
 
+            <!-- Shop Section -->
+            <section id="shop" style="display: none">
+                <div class="grid-y margin-top-2" style="padding-bottom: 100px">
+                    <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
+                        <h4 class="text-center">Shop</h4>
+                    </div>
 
-                <!-- Shop Section -->
-                <section id="shop" style="display: none">
-                    <div class="grid-y margin-top-2" style="padding-bottom: 100px">
-                        <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
-                            <h4 class="text-center">Shop</h4>
-                        </div>
+                    <div class="cell">
+                        <ul class="menu margin-horizontal-3 align-center icons" id="collections"
+                            style="border-bottom: 1px solid lightgray">
+                            <!-- example collections to be added
+                            <li><button type="button" class="button clear secondary" id="shopBest">
+                                Best Sellers</button></li>
+                            <li><button type="button" class="button clear secondary" id="shopCaps">
+                                Caps</button></li>
+                            <li><button type="button" class="button clear secondary" id="shopShirts">
+                                Shirts</button></li>
+                            <li><button type="button" class="button clear secondary" id="shopSNP">
+                                Stickers & Posters</button></li>
+                            <li><button type="button" class="button clear secondary" id="shopPride">
+                                Pride</button></li>-->
+                        </ul>
+                    </div>
 
-                        <div class="cell">
-                            <ul class="menu margin-horizontal-3 align-center icons" id="collections"
-                                style="border-bottom: 1px solid lightgray">
-                                <!-- example collections to be added
-                                <li><button type="button" class="button clear secondary" id="shopBest">
-                                    Best Sellers</button></li>
-                                <li><button type="button" class="button clear secondary" id="shopCaps">
-                                    Caps</button></li>
-                                <li><button type="button" class="button clear secondary" id="shopShirts">
-                                    Shirts</button></li>
-                                <li><button type="button" class="button clear secondary" id="shopSNP">
-                                    Stickers & Posters</button></li>
-                                <li><button type="button" class="button clear secondary" id="shopPride">
-                                    Pride</button></li>-->
-                            </ul>
-                        </div>
-
-                        <div class="cell margin-top-2" id="products">
-                            <!-- add rows of products here-->
-                            <!-- example row of products
-                            <div class="grid-x grid-margin-x align-center">
-                                <div class="cell small-8 medium-4 large-3 auto callout">
-                                    <div class="cell grid-y text-center">
-                                        <button data-open="modal">
-                                            <img class="thumbnail margin-bottom-0" src="Assets/test.png">
-                                        </button>
-                                        
-                                        <div class="large reveal" id="modal" data-reveal="">
-                                            <div class="grid-x">
-                                                <div class="cell small-12 medium-7">
-                                                    <div class="grid-y">
-                                                        <div class="cell">
-                                                            <img id="modalMainImg" src="Assets/test.png">
-                                                        </div>
-
-                                                        <div class="cell">
-                                                            <div class="grid-x">
-                                                                <div class="cell small-4">
-                                                                    <button>
-                                                                    <img class="width-100 display-block max-width-100" src="Assets/test.png">
-                                                                    </button>
-                                                                </div>
-
-                                                                <div class="cell small-4">
-                                                                    <button>
-                                                                        <img class="width-100 display-block max-width-100" src="Assets/test.png">
-                                                                    </button>
-                                                                </div>
-
-                                                                <div class="cell small-4">
-                                                                    <button>
-                                                                        <img class="width-100 display-block max-width-100" src="Assets/test.png">
-                                                                    </button>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-
+                    <div class="cell margin-top-2" id="products">
+                        <!-- add rows of products here-->
+                        <!-- example row of products
+                        <div class="grid-x grid-margin-x align-center">
+                            <div class="cell small-8 medium-4 large-3 auto callout">
+                                <div class="cell grid-y text-center">
+                                    <button data-open="modal">
+                                        <img class="thumbnail margin-bottom-0" src="Assets/test.png">
+                                    </button>
+                                    
+                                    <div class="large reveal" id="modal" data-reveal="">
+                                        <div class="grid-x">
+                                            <div class="cell small-12 medium-7">
+                                                <div class="grid-y">
+                                                    <div class="cell">
+                                                        <img id="modalMainImg" src="Assets/test.png">
                                                     </div>
-                                                </div>
 
-                                                <div class="cell small-12 medium-5">
-                                                    <div class="grid-y margin-top-1">
-                                                        <div class="cell small-10 overflow-y-scroll" style="max-height: 400px">
-                                                            
+                                                    <div class="cell">
+                                                        <div class="grid-x">
+                                                            <div class="cell small-4">
+                                                                <button>
+                                                                <img class="width-100 display-block max-width-100" src="Assets/test.png">
+                                                                </button>
+                                                            </div>
+
+                                                <div class="cell margin-top-1">
+                                                    <div class="grid-x grid-margin-x">
+                                                        <div class="cell small-4">
+                                                            <button>
+                                                            <img class="width-100 display-block max-width-100" src="Assets/test.png">
+                                                            </button>
                                                         </div>
 
-                                                        <div class="cell small-2 margin-top-1">
-                                                            <button type="button" class="success button width-100"
-                                                                data-productID=""
-                                                                data-productTitle=""
-                                                                data-imgSRC="">
-                                                                Add to Cart
+                                                        <div class="cell small-4">
+                                                            <button>
+                                                                <img class="width-100 display-block max-width-100" src="Assets/test.png">
+                                                            </button>
+                                                        </div>
+
+                                                        <div class="cell small-4">
+                                                            <button>
+                                                                <img class="width-100 display-block max-width-100" src="Assets/test.png">
                                                             </button>
                                                         </div>
 
@@ -255,194 +237,217 @@
                                                 </div>
 
                                             </div>
-                                            
-                                            <button type="button" class="close-button" data-close="" aria-label="close reveal">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
                                         </div>
 
-                                        <h6 class="margin-top-1 margin-bottom-0">BIGFOOT TRIED TO EAT MY ASS</h6>
-                                    </div>
-                                </div>
+                                        <div class="cell small-12 medium-5">
+                                            <div class="grid-y margin-top-1">
+                                                <div class="cell small-10 overflow-y-scroll" style="max-height: 400px">
+                                                    
+                                                </div>
 
-                                <div class="cell small-8 medium-4 large-3 auto callout"> 
+                                                <div class="cell small-2 margin-top-1">
+                                                    <button type="button" class="success button width-100"
+                                                        data-productID=""
+                                                        data-productTitle=""
+                                                        data-imgSRC="">
+                                                        Add to Cart
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
                                     
+                                    <button type="button" class="close-button" data-close="" aria-label="close reveal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
 
-                                <div class="cell small-8 medium-4 large-3 auto callout"> 
-
-                                </div> 
-
-                            </div>-->
-
-                        </div>
-                    </div>
-                </section>
-
-                <section id="checkout" style="display: contents">
-                    <div class="grid-y margin-top-2" style="padding-bottom: 100px">
-                        <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
-                            <h4 class="text-center">Checkout</h4>
-                        </div>
-
-                        <div class="cell margin-top-2 margin-bottom-1">
-                            <form>
-                                <div class="grid-x grid-padding-x align-center">
-                                    <div class="cell small-12 medium-5">
-                                        <label>First Name:
-                                            <input type="text" id="firstName" placeholder="Bob">
-                                        </label>
-                                    </div>
-
-                                    <div class="cell small-12 medium-5">
-                                        <label>Last Name:
-                                            <input type="text" id="lastName" placeholder="Jones">
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="grid-x grid-padding-x align-center">
-                                    <div class="cell small-12 medium-5">
-                                        <label>Address 1:
-                                            <input type="text" id="address1" placeholder="123 Animated Street">
-                                        </label>
-                                    </div>
-
-                                    <div class="cell small-12 medium-5">
-                                        <label>Address 2:
-                                            <input type="text" id="address2" placeholder="Apt 2">
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="grid-x grid-padding-x align-center">
-                                    <div class="cell small-12 medium-5">
-                                        <label>City:
-                                            <input type="text" id="city" placeholder="LaLa Land">
-                                        </label>
-                                    </div>
-
-                                    <div class="cell small-12 medium-5">
-                                        <label>Province:
-                                            <input type="text" id="province" placeholder="California">
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="grid-x grid-padding-x align-center">
-                                    <div class="cell small-12 medium-5">
-                                        <label>Zip code:
-                                            <input type="text" id="zip" placeholder="90024">
-                                        </label>
-                                    </div>
-
-                                    <div class="cell small-12 medium-5">
-                                        <label>Country:
-                                            <input type="text" id="country" placeholder="United States">
-                                        </label>
-                                    </div>
-                                </div>
-
-
-                                <div class="grid-x grid-padding-x align-center">
-                                    <div class="cell small-12 medium-5">
-                                        <label>Phone:
-                                            <input type="text" id="phone" placeholder="310-123-4567">
-                                        </label>
-                                    </div>
-
-                                    <div class="cell small-12 medium-5">
-                                        <label>Company:
-                                            <input type="text" id="company" placeholder="">
-                                        </label>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-
-                        <div class="cell" style="display: contents">
-                            <div class="grid-x align-center">
-                                <button type="button" class="cell small-12 medium-4 button primary" id="paymentButton">
-                                    Checkout
-                                </button>
+                                <h6 class="cell margin-top-1 margin-bottom-0">
+                                    BIGFOOT TRIED TO EAT MY ASS
+                                </h6>
+                                
                             </div>
                         </div>
 
+                        <div class="cell small-8 medium-4 large-3 auto callout"> 
+                            
+                        </div>
+
+                        <div class="cell small-8 medium-4 large-3 auto callout"> 
+
+                        </div> 
+
+                    </div> -->
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- checkout section -->
+            <section id="checkout" style="display: none">
+                <div class="grid-y margin-top-2" style="padding-bottom: 100px">
+                    <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
+                        <h4 class="text-center">Checkout</h4>
                     </div>
 
-                </section>
-                <section>
-
-                    <!--Tumblr section-->
-
-                    <div class="grid-container-fluid" id="tumblr-posts">
-                        <!--Tumblr posts append here-->
-
-
-                    </div>
-
-                    <!--Modals go here!-->
-
-                    <div class="reveal" id="askModal" data-reveal>
+                    <div class="cell margin-top-2 margin-bottom-1">
                         <form>
-                            <label>
-                                <h4>Request a gif!</h4>
-                                <textarea
-                                    placeholder="Add your social media handles if you want a shout-out."></textarea>
-                            </label>
-                            <input type="submit" class="send">
+                            <div class="grid-x grid-padding-x align-center">
+                                <div class="cell small-12 medium-5">
+                                    <label>First Name:
+                                        <input type="text" id="firstName" placeholder="Bob">
+                                    </label>
+                                </div>
+
+                                <div class="cell small-12 medium-5">
+                                    <label>Last Name:
+                                        <input type="text" id="lastName" placeholder="Jones">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid-x grid-padding-x align-center">
+                                <div class="cell small-12 medium-5">
+                                    <label>Address 1:
+                                        <input type="text" id="address1" placeholder="123 Animated Street">
+                                    </label>
+                                </div>
+
+                                <div class="cell small-12 medium-5">
+                                    <label>Address 2:
+                                        <input type="text" id="address2" placeholder="Apt 2">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid-x grid-padding-x align-center">
+                                <div class="cell small-12 medium-5">
+                                    <label>City:
+                                        <input type="text" id="city" placeholder="LaLa Land">
+                                    </label>
+                                </div>
+
+                                <div class="cell small-12 medium-5">
+                                    <label>Province:
+                                        <input type="text" id="province" placeholder="California">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid-x grid-padding-x align-center">
+                                <div class="cell small-12 medium-5">
+                                    <label>Zip code:
+                                        <input type="text" id="zip" placeholder="90024">
+                                    </label>
+                                </div>
+
+                                <div class="cell small-12 medium-5">
+                                    <label>Country:
+                                        <input type="text" id="country" placeholder="United States">
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <div class="grid-x grid-padding-x align-center">
+                                <div class="cell small-12 medium-5">
+                                    <label>Phone:
+                                        <input type="text" id="phone" placeholder="310-123-4567">
+                                    </label>
+                                </div>
+
+                                <div class="cell small-12 medium-5">
+                                    <label>Company:
+                                        <input type="text" id="company" placeholder="">
+                                    </label>
+                                </div>
+                            </div>
+
                         </form>
-                        <button class="close-button" data-close aria-label="Close modal" type="button">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
                     </div>
 
-
-                    <div class="medium reveal" id="contactModal" data-reveal>
-                        <form>
-
-                            <label>
-                                <h6>Contact Me</h6>
-                                <input type="email" id="user-email" placeholder="Your Email">
-                            </label>
-                            <label>
-                                <p>Message:</p>
-                                <textarea id="body" placeholder="Your message goes here."></textarea>
-                            </label>
-                            <input type="submit" class="send">
-                        </form>
-                        <button class="close-button" data-close aria-label="Close modal" type="button">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                    <div class="cell" style="display: contents">
+                        <div class="grid-x align-center">
+                            <button type="button" class="cell small-12 medium-4 button primary" id="paymentButton">
+                                Checkout
+                            </button>
+                        </div>
                     </div>
+                </div>
+            </section>
 
-                    <!--notes dropup-->
-                    <div class="dropdown-pane" data-position="top" data-alignment="right" id="notes-hover" data-dropdown
-                        data-hover="true" data-hover-pane="true">
-                        <a href="https://animatedtext.tumblr.com">redirect to notes</a>
-                    </div>
+            <!-- blog section -->
+            <section id="blog" style="display: none">
 
-                    <!--tumblr dropup-->
-                    <div class="dropdown-pane" data-position="top" data-alignment="right" id="tumblr-hover"
-                        data-dropdown data-hover="true" data-hover-pane="true">
-                        <a href="https://animatedtext.tumblr.com"> go to my tumblr!</a>
-                    </div>
+                <div class="grid-container-fluid" id="tumblr-posts">
+                    <!--Tumblr posts append here-->
 
-                    <!--Social Media toggle menu-->
-                    <div class="dropdown-pane" data-position="top" data-alignment="right" id="social-media"
-                        data-dropdown data-hover="true" data-hover-pane="true">
-                        <ul class="vertical menu align-center">
-                            <li><i class='fi-social-tumblr large' id='tumblr'></i></li>
-                            <li><i class='fi-social-twitter large' id='twitter'></i></li>
-                            <li><i class='fi-social-facebook large' id='facebook'></i></li>
-                            <li><i class='fi-social-reddit large' id='reddit'></i></li>
-                            <li><i class='fi-social-pinterest large' id='pinterest'></i></li>
-                            <li><i class='fi-link large' id='embed'></i></li>
-                        </ul>
-                    </div>
 
-                </section>
+                </div>
+
+                <!--Modals go here!-->
+
+                <div class="reveal" id="askModal" data-reveal>
+                    <form>
+                        <label>
+                            <h4>Request a gif!</h4>
+                            <textarea
+                                placeholder="Add your social media handles if you want a shout-out."></textarea>
+                        </label>
+                        <input type="submit" class="send">
+                    </form>
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+
+                <div class="medium reveal" id="contactModal" data-reveal>
+                    <form>
+
+                        <label>
+                            <h6>Contact Me</h6>
+                            <input type="email" id="user-email" placeholder="Your Email">
+                        </label>
+                        <label>
+                            <p>Message:</p>
+                            <textarea id="body" placeholder="Your message goes here."></textarea>
+                        </label>
+                        <input type="submit" class="send">
+                    </form>
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <!--notes dropup-->
+                <div class="dropdown-pane" data-position="top" data-alignment="right" id="notes-hover" data-dropdown
+                    data-hover="true" data-hover-pane="true">
+                    <a href="https://animatedtext.tumblr.com">redirect to notes</a>
+                </div>
+
+                <!--tumblr dropup-->
+                <div class="dropdown-pane" data-position="top" data-alignment="right" id="tumblr-hover"
+                    data-dropdown data-hover="true" data-hover-pane="true">
+                    <a href="https://animatedtext.tumblr.com"> go to my tumblr!</a>
+                </div>
+
+                <!--Social Media toggle menu-->
+                <div class="dropdown-pane" data-position="top" data-alignment="right" id="social-media"
+                    data-dropdown data-hover="true" data-hover-pane="true">
+                    <ul class="vertical menu align-center">
+                        <li><i class='fi-social-tumblr large' id='tumblr'></i></li>
+                        <li><i class='fi-social-twitter large' id='twitter'></i></li>
+                        <li><i class='fi-social-facebook large' id='facebook'></i></li>
+                        <li><i class='fi-social-reddit large' id='reddit'></i></li>
+                        <li><i class='fi-social-pinterest large' id='pinterest'></i></li>
+                        <li><i class='fi-link large' id='embed'></i></li>
+                    </ul>
+                </div>
+
+            </section>
 
         </main>
     </div>
