@@ -30,8 +30,8 @@ $( document ).ready(function() {
 
     $("#collections").on("click", function() {
         event.preventDefault();
-
-        var target = event.target.dataset.collectionId;
+        
+        var target = event.target.dataset.collectionid;
         fillProducts(target);
     });
 
@@ -55,7 +55,7 @@ $( document ).ready(function() {
                         var buttonToAdd = $("<button>");
                         buttonToAdd.addClass("button clear secondary");
                         buttonToAdd.attr("type", "button");
-                        buttonToAdd.data("collectionId", collections[i].id);
+                        buttonToAdd.attr("data-collectionId", collections[i].id);
                         buttonToAdd.text(collectionName);
         
                         linkToAdd.append(buttonToAdd);
@@ -63,9 +63,9 @@ $( document ).ready(function() {
                     }
         
                     shopFilled = true;
-                } else {
-                    fillProducts(collections[0].id);
-                }
+                } 
+
+                fillProducts(collections[0].id);
             });
         });
     
@@ -74,6 +74,8 @@ $( document ).ready(function() {
 
     var itemsToCheckout = [];
     var itemsProperties = [];
+    localStorage.setItem("itemsToCheckout", JSON.stringify(itemsToCheckout)); //erase
+    localStorage.setItem("itemsProperties", JSON.stringify(itemsProperties));
 
     function getCartItems() {
         var tempItemsToCheckout = JSON.parse(localStorage.getItem("itemsToCheckout"));
@@ -90,30 +92,32 @@ $( document ).ready(function() {
         if (event.target.matches("button")) {
             getCartItems();
 
-            if (event.target.textContent("&plus;")) {
-                var quantity = event.target.parentElement.firstChild.firstChild;
+            console.log(event.target);
+
+            if (event.target.textContent === "+") {
+                var quantity = event.target.parentElement.firstChild.children[0];
                 quantity.textContent = parseInt(quantity.textContent) + 1;
 
-                var itemIndex = event.target.parentElement.dataset.itemIndex;
+                var itemIndex = event.target.parentElement.dataset.itemindex;
                 itemsToCheckout[itemIndex].quantity += 1;
-            } else if (event.target.textContent("&minus;")) {
-                var itemIndex = event.target.parentElement.dataset.itemIndex;
+            } else if (event.target.textContent === "−") {
+                var itemIndex = event.target.parentElement.dataset.itemindex;
                 if (itemsToCheckout[itemIndex].quantity > 0) {
-                    var quantity = event.target.parentElement.firstChild.firstChild;
-                    quantity.textContent = parseInt(quantity.textContent) - 1;
+                    var quantity = event.target.parentElement.firstChild.children[0];
 
+                    quantity.textContent = parseInt(quantity.textContent) - 1;
                     itemsToCheckout[itemIndex].quantity -= 1;
                 }
-            } else if (event.target.textContent("Remove")) {
-                var itemIndex = event.target.parentElement.dataset.itemIndex;
+            } else if (event.target.textContent === "Remove") {
+                var itemIndex = event.target.parentElement.dataset.itemindex;
                 itemsToCheckout.splice(itemIndex, 1);
                 itemsProperties.splice(itemIndex, 1);
-
-                displayCart();
             }
 
             localStorage.setItem("itemsToCheckout", JSON.stringify(itemsToCheckout));
             localStorage.setItem("itemsProperties", JSON.stringify(itemsProperties));
+
+            displayCart();
         }
     });
 
@@ -157,7 +161,7 @@ $( document ).ready(function() {
             client.checkout.create().then((checkout) => {
                 client.checkout.updateShippingAddress(checkout.id, shippingAddress);
                 client.checkout.addLineItems(checkout.id, itemsToCheckout);
-                
+
                 window.location.replace(checkout.webUrl);
             });
         });
@@ -173,10 +177,13 @@ $( document ).ready(function() {
 
         if (itemsToCheckout.length === 0) {
             $("#cartEmpty").css("display", "contents");
-            $("#checkout").css("display", "none");
+            $("#cartItems").css("display", "none");
+            $("#checkoutCell").css("display", "none");
+            
         } else {
             $("#cartEmpty").css("display", "none");
-            $("#checkout").css("display", "contents");
+            $("#cartItems").css("display", "contents");
+            $("#checkoutCell").css("display", "contents");
 
             getCartItems();
             for (var i = 0; i < itemsToCheckout.length; i++) {
@@ -198,7 +205,7 @@ $( document ).ready(function() {
 
                 var quantityGrid = $("<div>").addClass("cell grid-y align-justify callout padding-0 border-none small-12 medium-2");
                 var quantityCell = $("<div>").addClass("cell text-right");
-                quantityCell.data("itemIndex", i);
+                quantityCell.attr("data-itemIndex", i);
                 var quantity = $("<h6>").addClass("margin-bottom-0");
                 quantity.text("Quantity: ");
                 var span = $("<span>").text(itemsToCheckout[i].quantity);
@@ -208,19 +215,19 @@ $( document ).ready(function() {
                 itemToAdd.append(quantityGrid);
 
                 var plusButton = $("<button>").addClass("button primary callout margin-bottom-0 float-right");
-                plusButton.text("&plus;");
-                plusButton.type("button");
+                plusButton.text("+");
+                plusButton.attr("type", "button");
                 var minusButton = $("<button>").addClass("button primary callout margin-bottom-0 float-right");
-                minusButton.text("&minus;");
-                minusButton.type("button");
+                minusButton.text("−");
+                minusButton.attr("type", "button");
                 quantityCell.append(plusButton);
                 quantityCell.append(minusButton);
 
                 var removeCell = $("<div>").addClass("cell");
                 var removeButton = $("<button>").addClass("button clear margin-bottom-0 float-right");
                 removeButton.text("Remove");
-                removeButton.type("button");
-                remvoveCell.append(removeButton);
+                removeButton.attr("type", "button");
+                removeCell.append(removeButton);
                 quantityGrid.append(removeCell);
 
                 $("#cartItems").append(itemToAdd);
@@ -230,40 +237,73 @@ $( document ).ready(function() {
         $("#cart").css("display", "contents");
     }
 
-    $("#products").on("cllick", function() {
+    $(document).on("click", function() {
+        if (event.target.matches("span") || event.target.className === "reveal-overlay") {
+            for (var i = 0; i < $(".reveal-overlay").length; i++) {
+                if ($(".reveal-overlay")[i].childElementCount === 0) {
+                    $(".reveal-overlay")[i].remove();
+                    i--;
+                }
+            }
+        } else if (event.target.matches("img")) {
+            var index = event.target.parentElement.parentElement.parentElement.dataset.mainimageindex;
+            $("#modalMainImg" + index).attr("src", event.target.src);
+        } else if (event.target.matches("button") && event.target.dataset.productid !== undefined) {  // add to cart
+            getCartItems();
+
+            var id = event.target.dataset.productid;
+            if (itemsToCheckout.length === 0) {
+                itemsToCheckout.push({
+                    variantId: id,
+                    quantity: 1
+                });
+
+                itemsProperties.push({
+                    title: event.target.dataset.producttitle,
+                    imgSRC: event.target.dataset.imgsrc
+                });
+
+                localStorage.setItem("itemsToCheckout", JSON.stringify(itemsToCheckout));
+                localStorage.setItem("itemsProperties", JSON.stringify(itemsProperties));
+
+                event.target.textContent = "Added"
+            } else {
+                for (var i = 0; i < itemsToCheckout.length; i++) {
+                    if (itemsToCheckout[i].variantId === id) {
+                        event.target.textContent = "Already Added"
+                        break;
+                    }
+    
+                    if (i === itemsToCheckout.length - 1) {
+                        itemsToCheckout.push({
+                            variantId: id,
+                            quantity: 1
+                        });
+    
+                        itemsProperties.push({
+                            title: event.target.dataset.producttitle,
+                            imgSRC: event.target.dataset.imgsrc
+                        });
+    
+                        localStorage.setItem("itemsToCheckout", JSON.stringify(itemsToCheckout));
+                        localStorage.setItem("itemsProperties", JSON.stringify(itemsProperties));
+    
+                        event.target.textContent = "Added"
+                        break;
+                    } 
+                }
+            }
+            
+        }
+    })
+
+    $("#products").on("click", function() {
         event.preventDefault();
 
         if (event.target.matches("img")) {
-            var index = event.target.data("mainImageIndex");
-            $("#modalMainImg" + index).attr("src", event.target.attr("src"));
-        } else if (event.target.matches("button")) {  // add to cart
-            getCartItems();
-
-            var id = event.target.dataset.productID;
-            for (var i = 0; i < itemsToCheckout.length; i++) {
-                if (itemsToCheckout[i].variantId === id) {
-                    event.target.textContent = "Already added"
-                    break;
-                }
-
-                if (i === itemsToCheckout.length - 1) {
-                    itemsToCheckout.push({
-                        variantId: id,
-                        quantity: 1
-                    });
-
-                    itemsProperties.push({
-                        title: event.target.dataset.productTitle,
-                        imgSRC: event.target.dataset.imgSRC
-                    });
-
-                    localStorage.setItem("itemsToCheckout", JSON.stringify(itemsToCheckout));
-                    localStorage.setItem("itemsProperties", JSON.stringify(itemsProperties));
-
-                    event.target.textContent = "Added"
-                } 
-            }
-        }
+            var modalToReveal = $("#" + event.target.parentElement.dataset.open);
+            new Foundation.Reveal(modalToReveal); 
+        } 
     });
 
     function fillProducts(collectionId) {
@@ -275,6 +315,7 @@ $( document ).ready(function() {
 
             client.collection.fetchWithProducts(collectionId, {productsFirst: 10}).then((collection) => {
                 $("#products").empty();
+                $(".reveal-overlay").remove();
 
                 var rowToAdd;
                 var count = 0;
@@ -286,7 +327,7 @@ $( document ).ready(function() {
                     columnToAdd.append(cellToAdd);
                     rowToAdd.append(columnToAdd);
 
-                    var imageButton = $("<button>").data("open", "modal" + i);
+                    var imageButton = $("<a>").attr("data-open", "modal" + i);
                     var productImage = $("<img>").addClass("thumbnail margin-bottom-0");
                     productImage.attr("src", collection.products[i].images[0].src);
                     imageButton.append(productImage);
@@ -294,10 +335,10 @@ $( document ).ready(function() {
 
                     var modalToAdd = $("<div>").addClass("large reveal");
                     modalToAdd.attr("id", "modal" + i);
-                    modalToAdd.data("reveal", "");
+                    modalToAdd.attr("data-reveal", "");
                     cellToAdd.append(modalToAdd);
                     
-                    var modalGrid = $("<div>").addClass("grid-x");
+                    var modalGrid = $("<div>").addClass("grid-x grid-margin-x");
                     var modalGridCellLeft = $("<div>").addClass("cell small-12 medium-7");
                     var modalGridCellRight = $("<div>").addClass("cell small-12 medium-5");
                     var modalImageGrid = $("<div>").addClass("grid-y");
@@ -312,19 +353,20 @@ $( document ).ready(function() {
                     modalImageGridCell.append(modalMainImg);
                     modalImageGrid.append(modalImageGridCell);
 
-                    var modalImageVariantCell = $("<div>").addClass("cell");
-                    var modalImageVariantGrid = $("<div>").addClass("grid-x");
+                    var modalImageVariantCell = $("<div>").addClass("cell margin-top-1");
+                    var modalImageVariantGrid = $("<div>").addClass("grid-x grid-margin-x");
+                    modalImageVariantGrid.attr("data-mainImageIndex", i);
                     modalImageVariantCell.append(modalImageVariantGrid);
+                    modalImageGrid.append(modalImageVariantCell);
 
                     for (var j = 0; j < collection.products[i].images.length; j++) {
                         if (j === 3) { break; }
                         var modalImageVariant = $("<div>").addClass("cell small-4");
                         var modalImageVariantButton = $("<button>");
                         var modalImageVariantImage = $("<img>").addClass("width-100 display-block max-width-100");
-                        modalImageVariantImage.attr("src", collection.products[i].images[j].src);
-                        modalImageVariantImage.data("mainImageIndex", i);
 
-                        modalImageVariantButton.apppend(modalImageVariantImage);
+                        modalImageVariantImage.attr("src", collection.products[i].images[j].src);
+                        modalImageVariantButton.append(modalImageVariantImage);
                         modalImageVariant.append(modalImageVariantButton);
                         modalImageVariantGrid.append(modalImageVariant);
                     }
@@ -333,29 +375,29 @@ $( document ).ready(function() {
                     modalGridCellRight.append(modalDescriptionGrid);
                     var modalDescription = $("<div>").addClass("cell small-10 overflow-y-scroll");
                     modalDescription.css("max-height", "400px");
-                    modalDescription.append(collection.products[i].description.Html);
+                    modalDescription.append(collection.products[i].descriptionHtml);
                     modalDescriptionGrid.append(modalDescription);
 
                     var modalAddToCartCell = $("<div>").addClass("cell small-2 margin-top-1");
                     var modalAddToCartButton = $("<button>").addClass("success button width-100");
                     modalAddToCartButton.attr("type", "button");
                     modalAddToCartButton.text("Add to Cart");
-                    modalAddToCartButton.data("productID", collection.products[i].id); // may have to use variants id here - ToConfirm
-                    modalAddToCartButton.data("productTitle", collection.products[i].title);
-                    modalAddToCartButton.data("imgSRC", collection.products[i].images[0].src);
-                    modalAddToCartCell.append(modalAddToCarButton);
+                    modalAddToCartButton.attr("data-productID", collection.products[i].id); // may have to use variants id here - ToConfirm
+                    modalAddToCartButton.attr("data-productTitle", collection.products[i].title);
+                    modalAddToCartButton.attr("data-imgSRC", collection.products[i].images[0].src);
+                    modalAddToCartCell.append(modalAddToCartButton);
                     modalDescriptionGrid.append(modalAddToCartCell);
 
                     var modalCloseButton = $("<button>").addClass("close-button");
                     modalCloseButton.attr("type", "button");
-                    modalCloseButton.data("close", "");
+                    modalCloseButton.attr("data-close", "");
                     modalCloseButton.attr("aria-label", "close reveal");
-                    var modalCloseSpan = $("<span>").text("&times;");
+                    var modalCloseSpan = $("<span>").text("×");
                     modalCloseSpan.attr("aria-hidden", "true");
-                    modalCloseSpan.append(modalCloseSpan);
+                    modalCloseButton.append(modalCloseSpan);
                     modalToAdd.append(modalCloseButton);
 
-                    var productTitle = $("<h6>").addClass("margin-top-1 margin-bottom-0");
+                    var productTitle = $("<h6>").addClass("margin-top-1 margin-bottom-0 text-bottom");
                     productTitle.text(collection.products[i].title);
                     cellToAdd.append(productTitle);
 
@@ -366,11 +408,13 @@ $( document ).ready(function() {
                     }
                 }
             });
+
+            $(document).foundation();
         });
     }
 
     function displayBlog() {
-        resetDisplay();
+        $("#blog").css("display", "contents");
         getPosts();
 
 
@@ -425,7 +469,7 @@ $( document ).ready(function() {
                             console.log(p[i].summary + ", " + id);
                         } else {
                             //render posts to the page
-                            $("#tumblr-posts").append(imgContainer + imgURL + cardSection + caption + sectionParagraph + source + tags + cardNotes + notes + timeStamp + gifRequest + socialLinks);
+                            $("#tumblr-posts").append(imgContainer + imgURL + cardSection + caption + sectionParagraph + source + tagsArray + cardNotes + notes + timeStamp + gifRequest + socialLinks);
                         }
     
                     }
