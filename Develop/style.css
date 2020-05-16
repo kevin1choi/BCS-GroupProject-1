@@ -1,19 +1,10 @@
+/* square shop thumbnails */
 .productphoto {
     height:278.5px;
+    width: 278.5px;
 }
 
-.buffer {
-    margin-bottom:30px;
-}
-
-.card-section, button {
-    color: lightgray;
-}
-
-.notes {
-    font-weight: bold;
-}
-
+/* round social media buttons */
 .fa {
     padding: 20px;
     font-size: 30px;
@@ -25,25 +16,30 @@
     border-radius: 50%;
 }
 
+/* hover effect */
 .fa:hover {
     opacity: 0.7;
 }
 
+/* Tumblr social media button */
 .fa-tumblr {
     background: #2c4762;
     color: white;
 }
 
+/* Instagram social media button */
 .fa-instagram {
     background: #E1306C;
     color: white;
 }
 
+/* Twitter social media button */
 .fa-twitter {
     background: #55ACEE;
     color: white;
 }
 
+/* Animated Text logo in header */
 #logo {
     height: 50px;
 }
