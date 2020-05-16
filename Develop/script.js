@@ -119,6 +119,7 @@ $( document ).ready(function() {
         $("#cart").css("display", "none");
         $("#blog").css("display", "none");
         $("#home").css("display", "none");
+        $("#checkout").css("display", "none");
     }
 
     $("#navbar").on("click", function() {
