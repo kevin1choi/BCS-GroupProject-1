@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="Develop/tumblr/script/jquery-min.js"></script>
     <!-- Foundation css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
@@ -13,42 +13,94 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-prototype.min.css"
         integrity="sha256-BiKflOunI0SIxlTOOUCQ0HgwXrRrRwBkIYppEllPIok=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css"
+        integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="Develop/style.css">
+    <!--Local custom CSS for Tumblr styling-->
+    <link rel="stylesheet" href=Develop/tumblr/styles/style.css>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Foundation Icons-->
     <link rel="stylesheet" href="Develop/tumblr/styles/foundation-icons/foundation-icons.css">
-    <!--Local custom CSS for tumblr styling-->
-    <link rel="stylesheet" href=Develop/tumblr/styles/style.css>
     <!-- Foundation js -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-
-    <!-- instagram js -->
-    <script src="https://www.instagram.com/embed.js"></script>
-
     <!-- require js-->
     <script data-main="Develop/script" src="Library/require.js"></script>
-    <!-- custom script -->
+    <!-- Custom script -->
     <script src="Develop/script.js"></script>
-
-
-    <title>Document</title>
+    <!-- Instagram js -->
+    <script src="https://www.instagram.com/embed.js"></script>
+    <title>Animated Text</title>
 </head>
 
 <body style="height: 100%">
-    <div style="min-height: 100%; margin-bottom: -70px">
+    <div style="min-height:100%; margin-bottom: -70px">
         <header class="callout margin-bottom-0 shadow grid-x align-middle align-justify width-100"
-            style="height: 70px; background-color: goldenrod;">
-
-            <h4>Animated Text</h4>
-
+            style="height: 70px; background-color: goldenrod">
+            <h4 class="margin-left-2">Animated Text</h4>
+            <!-- Animated Text Logo -->
+            <img id="logo" src="Assets/Animated-Text-Logo.png">
+            <!-- Nav Bar Menu -->
             <ul class="menu" id="navbar">
+                <li><button type="button" class="button clear">Home</button></li>
                 <li><button type="button" class="button clear">Blog</button></li>
                 <li><button type="button" class="button clear">Shop</button></li>
+                <li><button type="button" class="button clear">About</button></li>
+                <li><button type="button" class="button clear">Contact</button></li>
                 <li><button type="button" class="button clear">Cart</button></li>
             </ul>
 
         </header>
 
-        <main class="grid-container">
+        <main class="grid-container" style="padding-bottom:100px">
+            <section id="home" style="display: contents">
+                <div class="grid-y">
+                    <div class="cell callout">
+                        <!-- Jumbotron Image -->
+                        <img src="Assets/Image-Home-Section.webp" class="float-center" alt="Welcome!">
+                    </div>
+                    <div class="cell">
+                        <!-- Mini-description of content -->
+                        <h3 class="text-center">"dad jokes" if your dad was a black lesbian</h3>
+                    </div>
+                    <br>
+                    <div class="cell">
+                        <div class="grid-x">
+                            <!-- Empty div to dynamically create random Tumblr post -->
+                            <div id="home-tumblr" class="cell small-6 medium-6 large-6 auto">
+                            </div>
+                            <!-- Link to Shop -->
+                            <div class="cell small-6 medium-4 large-3 auto float-center">
+                                <div class="column">
+                                    <div class="productphoto" style="padding: 10px"><a href=""><img class="thumbnail"
+                                                src="https://assets.bigcartel.com/product_images/253825934/bad+bitches.png?auto=format&fit=max&h=1000&w=1000"
+                                                alt=""></a>
+                                        <h5 class="text-center">SHOP</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <!-- Featuring three Instagram posts; each div's content appended with js -->
+                <h1 class="text-center">Instagram</h1>
+                <div class="grid-y">
+                    <div class="cell">
+                        <div class="grid-x">
+                            <div id="instagramone" class="cell small-8 medium-6 large-3 auto float-left">
+                            </div>
+                            <div id="instagramtwo" class="cell small-8 medium-6 large-3 auto float-center">
+                            </div>
+                            <div id="instagramthree" class="cell small-8 medium-6 large-3 auto float-right">
+                            </div>
+                        </div>
+                    </div>
+            </section>
+
             <!-- Cart section -->
             <section id="cart" style="display: none">
                 <div class="grid-y margin-top-2" style="padding-bottom: 100px">
@@ -106,21 +158,27 @@
 
                 </div>
 
-            </section>
+                <section id="#" style="display: none">
+
+                </section>
+
+                <section id="#" style="display: none">
+
+                </section>
 
 
 
-            <!-- Shop Section -->
-            <section id="shop" style="display: none">
-                <div class="grid-y margin-top-2" style="padding-bottom: 100px">
-                    <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
-                        <h4 class="text-center">Shop</h4>
-                    </div>
+                <!-- Shop Section -->
+                <section id="shop" style="display: none">
+                    <div class="grid-y margin-top-2" style="padding-bottom: 100px">
+                        <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
+                            <h4 class="text-center">Shop</h4>
+                        </div>
 
-                    <div class="cell">
-                        <ul class="menu margin-horizontal-3 align-center icons" id="collections"
-                            style="border-bottom: 1px solid lightgray">
-                            <!-- example collections to be added
+                        <div class="cell">
+                            <ul class="menu margin-horizontal-3 align-center icons" id="collections"
+                                style="border-bottom: 1px solid lightgray">
+                                <!-- example collections to be added
                                 <li><button type="button" class="button clear secondary" id="shopBest">
                                     Best Sellers</button></li>
                                 <li><button type="button" class="button clear secondary" id="shopCaps">
@@ -131,12 +189,12 @@
                                     Stickers & Posters</button></li>
                                 <li><button type="button" class="button clear secondary" id="shopPride">
                                     Pride</button></li>-->
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
 
-                    <div class="cell margin-top-2" id="products">
-                        <!-- add rows of products here-->
-                        <!-- example row of products
+                        <div class="cell margin-top-2" id="products">
+                            <!-- add rows of products here-->
+                            <!-- example row of products
                             <div class="grid-x grid-margin-x align-center">
                                 <div class="cell small-8 medium-4 large-3 auto callout">
                                     <div class="cell grid-y text-center">
@@ -217,185 +275,193 @@
 
                             </div>-->
 
-                    </div>
-                </div>
-            </section>
-
-            <section id="checkout" style="display: contents">
-                <div class="grid-y margin-top-2" style="padding-bottom: 100px">
-                    <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
-                        <h4 class="text-center">Checkout</h4>
-                    </div>
-
-                    <div class="cell margin-top-2 margin-bottom-1">
-                        <form>
-                            <div class="grid-x grid-padding-x align-center">
-                                <div class="cell small-12 medium-5">
-                                    <label>First Name:
-                                        <input type="text" id="firstName" placeholder="Bob">
-                                    </label>
-                                </div>
-
-                                <div class="cell small-12 medium-5">
-                                    <label>Last Name:
-                                        <input type="text" id="lastName" placeholder="Jones">
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="grid-x grid-padding-x align-center">
-                                <div class="cell small-12 medium-5">
-                                    <label>Address 1:
-                                        <input type="text" id="address1" placeholder="123 Animated Street">
-                                    </label>
-                                </div>
-
-                                <div class="cell small-12 medium-5">
-                                    <label>Address 2:
-                                        <input type="text" id="address2" placeholder="Apt 2">
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="grid-x grid-padding-x align-center">
-                                <div class="cell small-12 medium-5">
-                                    <label>City:
-                                        <input type="text" id="city" placeholder="LaLa Land">
-                                    </label>
-                                </div>
-
-                                <div class="cell small-12 medium-5">
-                                    <label>Province:
-                                        <input type="text" id="province" placeholder="California">
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="grid-x grid-padding-x align-center">
-                                <div class="cell small-12 medium-5">
-                                    <label>Zip code:
-                                        <input type="text" id="zip" placeholder="90024">
-                                    </label>
-                                </div>
-
-                                <div class="cell small-12 medium-5">
-                                    <label>Country:
-                                        <input type="text" id="country" placeholder="United States">
-                                    </label>
-                                </div>
-                            </div>
-
-
-                            <div class="grid-x grid-padding-x align-center">
-                                <div class="cell small-12 medium-5">
-                                    <label>Phone:
-                                        <input type="text" id="phone" placeholder="310-123-4567">
-                                    </label>
-                                </div>
-
-                                <div class="cell small-12 medium-5">
-                                    <label>Company:
-                                        <input type="text" id="company" placeholder="">
-                                    </label>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-
-                    <div class="cell" style="display: contents">
-                        <div class="grid-x align-center">
-                            <button type="button" class="cell small-12 medium-4 button primary" id="paymentButton">
-                                Checkout
-                            </button>
                         </div>
                     </div>
+                </section>
 
-                </div>
+                <section id="checkout" style="display: contents">
+                    <div class="grid-y margin-top-2" style="padding-bottom: 100px">
+                        <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
+                            <h4 class="text-center">Checkout</h4>
+                        </div>
 
-            </section>
-            <section>
+                        <div class="cell margin-top-2 margin-bottom-1">
+                            <form>
+                                <div class="grid-x grid-padding-x align-center">
+                                    <div class="cell small-12 medium-5">
+                                        <label>First Name:
+                                            <input type="text" id="firstName" placeholder="Bob">
+                                        </label>
+                                    </div>
 
-                <!--Tumblr section-->
+                                    <div class="cell small-12 medium-5">
+                                        <label>Last Name:
+                                            <input type="text" id="lastName" placeholder="Jones">
+                                        </label>
+                                    </div>
+                                </div>
 
-                <div class="grid-container-fluid" id="tumblr-posts">
-                    <!--Tumblr posts append here-->
+                                <div class="grid-x grid-padding-x align-center">
+                                    <div class="cell small-12 medium-5">
+                                        <label>Address 1:
+                                            <input type="text" id="address1" placeholder="123 Animated Street">
+                                        </label>
+                                    </div>
+
+                                    <div class="cell small-12 medium-5">
+                                        <label>Address 2:
+                                            <input type="text" id="address2" placeholder="Apt 2">
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="grid-x grid-padding-x align-center">
+                                    <div class="cell small-12 medium-5">
+                                        <label>City:
+                                            <input type="text" id="city" placeholder="LaLa Land">
+                                        </label>
+                                    </div>
+
+                                    <div class="cell small-12 medium-5">
+                                        <label>Province:
+                                            <input type="text" id="province" placeholder="California">
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="grid-x grid-padding-x align-center">
+                                    <div class="cell small-12 medium-5">
+                                        <label>Zip code:
+                                            <input type="text" id="zip" placeholder="90024">
+                                        </label>
+                                    </div>
+
+                                    <div class="cell small-12 medium-5">
+                                        <label>Country:
+                                            <input type="text" id="country" placeholder="United States">
+                                        </label>
+                                    </div>
+                                </div>
 
 
-                </div>
+                                <div class="grid-x grid-padding-x align-center">
+                                    <div class="cell small-12 medium-5">
+                                        <label>Phone:
+                                            <input type="text" id="phone" placeholder="310-123-4567">
+                                        </label>
+                                    </div>
 
-                <!--Modals go here!-->
+                                    <div class="cell small-12 medium-5">
+                                        <label>Company:
+                                            <input type="text" id="company" placeholder="">
+                                        </label>
+                                    </div>
+                                </div>
 
-                <div class="reveal" id="askModal" data-reveal>
-                    <form>
-                        <label>
-                            <h4>Request a gif!</h4>
-                            <textarea placeholder="Add your social media handles if you want a shout-out."></textarea>
-                        </label>
-                        <input type="submit" class="send">
-                    </form>
-                    <button class="close-button" data-close aria-label="Close modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+                            </form>
+                        </div>
+
+                        <div class="cell" style="display: contents">
+                            <div class="grid-x align-center">
+                                <button type="button" class="cell small-12 medium-4 button primary" id="paymentButton">
+                                    Checkout
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+                <section>
+
+                    <!--Tumblr section-->
+
+                    <div class="grid-container-fluid" id="tumblr-posts">
+                        <!--Tumblr posts append here-->
 
 
-                <div class="medium reveal" id="contactModal" data-reveal>
-                    <form>
+                    </div>
 
-                        <label>
-                            <h6>Contact Me</h6>
-                            <input type="email" id="user-email" placeholder="Your Email">
-                        </label>
-                        <label>
-                            <p>Message:</p>
-                            <textarea id="body" placeholder="Your message goes here."></textarea>
-                        </label>
-                        <input type="submit" class="send">
-                    </form>
-                    <button class="close-button" data-close aria-label="Close modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+                    <!--Modals go here!-->
 
-                <!--notes dropup-->
-                <div class="dropdown-pane" data-position="top" data-alignment="right" id="notes-hover" data-dropdown
-                    data-hover="true" data-hover-pane="true">
-                    <a href="https://animatedtext.tumblr.com">redirect to notes</a>
-                </div>
+                    <div class="reveal" id="askModal" data-reveal>
+                        <form>
+                            <label>
+                                <h4>Request a gif!</h4>
+                                <textarea
+                                    placeholder="Add your social media handles if you want a shout-out."></textarea>
+                            </label>
+                            <input type="submit" class="send">
+                        </form>
+                        <button class="close-button" data-close aria-label="Close modal" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
 
-                <!--tumblr dropup-->
-                <div class="dropdown-pane" data-position="top" data-alignment="right" id="tumblr-hover" data-dropdown
-                    data-hover="true" data-hover-pane="true">
-                    <a href="https://animatedtext.tumblr.com"> go to my tumblr!</a>
-                </div>
 
-                <!--Social Media toggle menu-->
-                <div class="dropdown-pane" data-position="top" data-alignment="right" id="social-media" data-dropdown
-                    data-hover="true" data-hover-pane="true">
-                    <ul class="vertical menu align-center">
-                        <li><i class='fi-social-tumblr large' id='tumblr'></i></li>
-                        <li><i class='fi-social-twitter large' id='twitter'></i></li>
-                        <li><i class='fi-social-facebook large' id='facebook'></i></li>
-                        <li><i class='fi-social-reddit large' id='reddit'></i></li>
-                        <li><i class='fi-social-pinterest large' id='pinterest'></i></li>
-                        <li><i class='fi-link large' id='embed'></i></li>
-                    </ul>
-                </div>
+                    <div class="medium reveal" id="contactModal" data-reveal>
+                        <form>
 
-            </section>
+                            <label>
+                                <h6>Contact Me</h6>
+                                <input type="email" id="user-email" placeholder="Your Email">
+                            </label>
+                            <label>
+                                <p>Message:</p>
+                                <textarea id="body" placeholder="Your message goes here."></textarea>
+                            </label>
+                            <input type="submit" class="send">
+                        </form>
+                        <button class="close-button" data-close aria-label="Close modal" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--notes dropup-->
+                    <div class="dropdown-pane" data-position="top" data-alignment="right" id="notes-hover" data-dropdown
+                        data-hover="true" data-hover-pane="true">
+                        <a href="https://animatedtext.tumblr.com">redirect to notes</a>
+                    </div>
+
+                    <!--tumblr dropup-->
+                    <div class="dropdown-pane" data-position="top" data-alignment="right" id="tumblr-hover"
+                        data-dropdown data-hover="true" data-hover-pane="true">
+                        <a href="https://animatedtext.tumblr.com"> go to my tumblr!</a>
+                    </div>
+
+                    <!--Social Media toggle menu-->
+                    <div class="dropdown-pane" data-position="top" data-alignment="right" id="social-media"
+                        data-dropdown data-hover="true" data-hover-pane="true">
+                        <ul class="vertical menu align-center">
+                            <li><i class='fi-social-tumblr large' id='tumblr'></i></li>
+                            <li><i class='fi-social-twitter large' id='twitter'></i></li>
+                            <li><i class='fi-social-facebook large' id='facebook'></i></li>
+                            <li><i class='fi-social-reddit large' id='reddit'></i></li>
+                            <li><i class='fi-social-pinterest large' id='pinterest'></i></li>
+                            <li><i class='fi-link large' id='embed'></i></li>
+                        </ul>
+                    </div>
+
+                </section>
 
         </main>
-
     </div>
 
-    <footer class="callout margin-bottom-0 grid-x width-100 align-middle"
-        style="height: 70px; background-color: goldenrod">
-        <h4 class="margin-bottom-0">Footer</h4>
+    <footer class="callout grid-x width-100 align-justify align-middle shadow"
+        style="height: 100px; margin-bottom:0; background-color:goldenrod">
+        <!-- Copyright -->
+        <p style="margin-bottom:0">&copy; 2020 Cat Frazier</p>
+        <!-- Social media icons/links -->
+        <div>
+            <!-- Tumblr -->
+            <a href="https://animatedtext.tumblr.com" class="fa fa-tumblr" target="_blank"></a>
+            <!-- Instagram -->
+            <a href="https://instagram.com/itsanimatedtext" class="fa fa-instagram" target="_blank"></a>
+            <!-- Twitter -->
+            <a href="https://twitter.com/animatedtext" class="fa fa-twitter" target="_blank"></a>
+        </div>
     </footer>
 
 </body>
-
-
 
 </html>
