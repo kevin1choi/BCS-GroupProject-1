@@ -201,8 +201,6 @@ $( document ).ready(function() {
         if (event.target.matches("button")) {
             getCartItems();
 
-            console.log(event.target);
-
             if (event.target.textContent === "+") {
                 var quantity = event.target.parentElement.firstChild.children[0];
                 quantity.textContent = parseInt(quantity.textContent) + 1;
@@ -218,7 +216,7 @@ $( document ).ready(function() {
                     itemsToCheckout[itemIndex].quantity -= 1;
                 }
             } else if (event.target.textContent === "Remove") {
-                var itemIndex = event.target.parentElement.dataset.itemindex;
+                var itemIndex = event.target.parentElement.parentElement.firstChild.dataset.itemindex;
                 itemsToCheckout.splice(itemIndex, 1);
                 itemsProperties.splice(itemIndex, 1);
             }
@@ -540,7 +538,7 @@ $( document ).ready(function() {
                 dataType: 'jsonp',
                 //Build your tumblr post
                 success: function (results) {
-                    console.log(results);
+                    //console.log(results);
                     var i = 0;
                     var p = results.response.posts;
                     //Retrieve posts as an array and retrieve data from each. 
@@ -575,7 +573,7 @@ $( document ).ready(function() {
                         i++;
                         //filter content types that cause double-posting.
                         if (type === "answer" || type === "text") {
-                            console.log(p[i].summary + ", " + id);
+                            // console.log(p[i].summary + ", " + id);
                         } else {
                             //render posts to the page
                             $("#tumblr-posts").append(imgContainer + imgURL + cardSection + caption + sectionParagraph + source + tagsArray + cardNotes + notes + timeStamp + gifRequest + socialLinks);
