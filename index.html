@@ -29,14 +29,16 @@
     <!-- require js-->
     <script data-main="Develop/script" src="Library/require.js"></script>
     <!-- Custom script
-        - don't need, require.js need for shopify module loads script.js already
+        - don't need, require.js needed for shopify module loads script.js already
     <script src="Develop/script.js"></script>-->
     <!-- Instagram js -->
     <script src="https://www.instagram.com/embed.js"></script>
+
     <title>Animated Text</title>
 </head>
 
 <body style="height: 100%">
+    <!-- div needed for sticky footer -->
     <div style="min-height:100%; margin-bottom: -100px">
         <header class="callout margin-bottom-0 shadow grid-x align-middle align-justify width-100"
             style="height: 70px; background-color: goldenrod">
@@ -55,6 +57,7 @@
 
         </header>
 
+        <!-- main grid -->
         <main class="grid-container" style="padding-bottom:100px">
             <!-- home section -->
             <section id="home" style="display: contents">
@@ -105,51 +108,57 @@
 
             <!-- Cart section -->
             <section id="cart" style="display: none">
+                <!-- cart grid -->
                 <div class="grid-y margin-top-2" style="padding-bottom: 100px">
+                    <!-- section title-->
                     <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
                         <h4 class="text-center">Cart</h4>
                     </div>
 
+                    <!-- empty cart message-->
                     <div class="cell" style="display: none" id="cartEmpty">
                         <h3 class="margin-top-3 text-center">Buy some stuff... Yaaaaas!</h3>
                     </div>
 
+                    <!-- cell to hold cart items -->
                     <div class="cell" id="cartItems">
-                        <!-- example order 
-                            <div class="cell callout grid-x align-center"
-                                style="border: none; border-bottom: 1px solid lightgray">
-                                <div class="cell callout margin-bottom-0 padding-0 small-12 medium-3">
-                                    <img class="thumbnail callout margin-bottom-0" src="Assets/test.png">
+                        <!-- example cart item
+                        <div class="cell callout grid-x align-center"
+                            style="border: none; border-bottom: 1px solid lightgray">
+                            <div class="cell callout margin-bottom-0 padding-0 small-12 medium-3">
+                                <img class="thumbnail callout margin-bottom-0" src="Assets/test.png">
+                            </div>
+
+                            <div class="cell callout margin-right-1 margin-bottom-0 padding-0 border-none small-12 medium-3">
+                                <h6 class="margin-left-1">BIGFOOT TRIED TO EAT MY ASS</h6>
+                            </div>
+
+                            <div class="cell grid-y align-justify callout padding-0 border-none small-12 medium-2">
+                                <div class="cell text-right" data-itemIndex="">
+                                    <h6 class="margin-bottom-0">Quantity: <span>5</span></h6>
+
+                                    <button type="button" class="button primary callout margin-bottom-0 float-right">
+                                        &plus;
+                                    </button>
+
+                                    <button type="button" class="button primary callout margin-bottom-0 float-right">
+                                        &minus;
+                                    </button>
+                                    
                                 </div>
 
-                                <div class="cell callout margin-right-1 margin-bottom-0 padding-0 border-none small-12 medium-3">
-                                    <h6 class="margin-left-1">BIGFOOT TRIED TO EAT MY ASS</h6>
+                                <div class="cell">
+                                    <button type="button" class="button clear margin-bottom-0 float-right">
+                                        Remove
+                                    </button>
                                 </div>
 
-                                <div class="cell grid-y align-justify callout padding-0 border-none small-12 medium-2">
-                                    <div class="cell text-right" data-itemIndex="">
-                                        <h6 class="margin-bottom-0">Quantity: <span>5</span></h6>
-
-                                        <button type="button" class="button primary callout margin-bottom-0 float-right">
-                                            &plus;
-                                        </button>
-
-                                        <button type="button" class="button primary callout margin-bottom-0 float-right">
-                                            &minus;
-                                        </button>
-                                        
-                                    </div>
-
-                                    <div class="cell">
-                                        <button type="button" class="button clear margin-bottom-0 float-right">
-                                            Remove
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </div> -->
+                            </div>
+                        </div> -->
                     </div>
 
+                    <!-- checkout button
+                        - leads to shipping info -->
                     <div class="cell" style="display: none" id="checkoutCell">
                         <div class="grid-x align-right">
                             <button type="button" class="cell small-12 medium-4 button primary" id="checkoutButton">
@@ -165,11 +174,14 @@
 
             <!-- Shop Section -->
             <section id="shop" style="display: none">
+                <!-- shop grid -->
                 <div class="grid-y margin-top-2" style="padding-bottom: 100px">
+                    <!-- section title -->
                     <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
                         <h4 class="text-center">Shop</h4>
                     </div>
 
+                    <!-- shop navbar -->
                     <div class="cell">
                         <ul class="menu margin-horizontal-3 align-center icons" id="collections"
                             style="border-bottom: 1px solid lightgray">
@@ -187,6 +199,9 @@
                         </ul>
                     </div>
 
+                    <!-- products cell 
+                        - dynamically creates and appends rows with 3 items
+                        - items are created with built in modals that have their own functionality -->
                     <div class="cell margin-top-2" id="products">
                         <!-- add rows of products here-->
                         <!-- example row of products
@@ -212,6 +227,8 @@
                                                                 <img class="width-100 display-block max-width-100" src="Assets/test.png">
                                                                 </button>
                                                             </div>
+                                                        </div>
+                                                    </div>
 
                                                 <div class="cell margin-top-1">
                                                     <div class="grid-x grid-margin-x">
@@ -242,7 +259,7 @@
                                         <div class="cell small-12 medium-5">
                                             <div class="grid-y margin-top-1">
                                                 <div class="cell small-10 overflow-y-scroll" style="max-height: 400px">
-                                                    
+                                                    descriptionHtml
                                                 </div>
 
                                                 <div class="cell small-2 margin-top-1">
@@ -285,13 +302,29 @@
                 </div>
             </section>
 
+            <!-- About section -->
+            <section id="about" style="display: none">
+                <!-- about grid -->
+                <div class="grid-y margin-top-2" style="padding-bottom: 100px">
+                    <!-- about title -->
+                    <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
+                        <h4 class="text-center">About</h4>
+                    </div>
+                </div>
+                
+            </section>
+
             <!-- checkout section -->
             <section id="checkout" style="display: none">
+                <!-- checkout grid -->
                 <div class="grid-y margin-top-2" style="padding-bottom: 100px">
+                    <!-- checkout title -->
                     <div class="cell margin-bottom-0" style="border-bottom: 1px solid lightgray">
                         <h4 class="text-center">Checkout</h4>
                     </div>
 
+                    <!-- shipping info form
+                        - cells are titles respectively to what they display -->
                     <div class="cell margin-top-2 margin-bottom-1">
                         <form>
                             <div class="grid-x grid-padding-x align-center">
@@ -368,6 +401,9 @@
                         </form>
                     </div>
 
+                    <!-- checkout button
+                        - button creates a checkout object, adds shipping address & items, then sends the object to shopify
+                        - shopify then returns a url of that checkout, to which the customer is then redirected -->
                     <div class="cell" style="display: contents">
                         <div class="grid-x align-center">
                             <button type="button" class="cell small-12 medium-4 button primary" id="paymentButton">
