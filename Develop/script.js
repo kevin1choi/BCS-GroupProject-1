@@ -1,6 +1,12 @@
 // on DOM load
 $( document ).ready(function() {
     $(document).foundation();
+    
+    requirejs(["../Library/index.umd.min"], function(index) {
+        //This function is called when ""../Library/index.umd.min" is loaded.
+        //Functions are not fired until dependencies have loaded and the index
+        //argument will hold the module value for "../Library/index.umd.min".
+    });
 
     // empty loading the module before use seems to help responsiveness on chrome
     // no noticeable changes on mozilla
